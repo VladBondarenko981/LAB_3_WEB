@@ -9,21 +9,17 @@ module.exports = new EntitySchema({
       type: "int",
       generated: true,
     },
-    postId: {
-      type: "int",
+    userId: {
+      type: "varchar",
       array: true,
     },
-    posts: {
+    userName: {
       type: "varchar",
       array: true, // Массив постов
     },
-    postDescriptions: {
+    userNumber: {
       type: "varchar",
       array: true, // Массив описания постов
-    },
-    postPhotoUrls: {
-      type: "varchar",
-      array: true, // Массив URL фото постов
     },
     nickname: {
       type: "varchar",

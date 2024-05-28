@@ -6,7 +6,7 @@ const dataSource = new typeorm.DataSource({
   port: 5432,
   username: "postgres",
   password: "Nikita123",
-  database: "node_two",
+  database: "stup2",
   synchronize: true,
   entities: [require("../entity/User")],
 });
