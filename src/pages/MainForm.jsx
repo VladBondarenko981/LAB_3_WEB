@@ -1,49 +1,49 @@
 import React from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import Posts from "../components/Posts/Posts";
+import Users from "../components/Users/Users";
 import styles from "./Style.module.css";
 import { useState } from "react";
 
-function MainForm({ Info, createPost, deletePost }) {
-  const [postName, setPostName] = useState("");
-  const [post, setPost] = useState("");
-  const [postPhoto, setPostPhoto] = useState("");
-  const addPost = () => {
+function MainForm({ Info, createUser, deleteUser }) {
+  const [userId, setUserId] = useState("");
+  const [userName, setUserName] = useState("");
+  const [userNumber, setUserNumber] = useState("");
+  const addUser = () => {
     const id = localStorage.getItem("id");
-    createPost(postName, post, postPhoto, id);
+    createUser(userId, userName, userNumber);
   };
   return (
     <div className={styles.MainForm}>
       <Header />
       <div className={styles.main}>
-        {Info.post.map((postNum, index) => (
-          <Posts
+        {Info.userName.map((postNum, index) => (
+          <Users
             key={index}
             Info={Info}
             index={index}
-            deletePost={deletePost}
+            deleteUser={deleteUser}
           />
         ))}
       </div>
       <div className={styles.types}>
         <input
           type="text"
-          placeholder="PostName"
-          value={postName}
-          onChange={(event) => setPostName(event.target.value)}
+          placeholder="UserId"
+          value={userId}
+          onChange={(event) => setUserId(event.target.value)}
         />
         <input
           type="text"
-          placeholder="PostInfo"
-          value={post}
-          onChange={(event) => setPost(event.target.value)}
+          placeholder="UserName"
+          value={userName}
+          onChange={(event) => setUserName(event.target.value)}
         />
         <input
           type="text"
-          placeholder="PostPhotoURL"
-          value={postPhoto}
-          onChange={(event) => setPostPhoto(event.target.value)}
+          placeholder="UserNumber"
+          value={userNumber}
+          onChange={(event) => setUserNumber(event.target.value)}
         />
       </div>
       <div className={styles.main_buttons}>
@@ -52,7 +52,7 @@ function MainForm({ Info, createPost, deletePost }) {
             type="button"
             id="openModal"
             className={`${styles["manage-main__button"]} ${styles["button-add"]} btn btn-success`}
-            onClick={addPost}
+            onClick={addUser}
           >
             Додати
           </button>

@@ -23,7 +23,7 @@ function Header(props) {
                 >
                   <img
                     className={styles.logo}
-                    src="https://logopond.com/logos/8c35ae11314ea90cd5a6ded5c4af3062.png"
+                    src="https://cdn-icons-png.freepik.com/256/455/455705.png?semt=ais_hybrid"
                     alt="Лого"
                   />
                 </a>

@@ -9,22 +9,20 @@ import React, { useState } from "react";
 
 function App() {
   const [info, setInfo] = useState({
-    postId: [],
-    postName: [],
-    post: [],
-    postPhoto: [],
+    userId: [],
+    userName: [],
+    userNumber: [],
   });
 
-  async function createPost(postName, post, postPhoto, id) {
+  async function createUser(userId, userName, userNumber) {
     try {
       // Отправляем запрос на сервер для создания поста
       const requestData = {
         method: "POST",
         body: JSON.stringify({
-          postName,
-          post,
-          postPhoto,
-          id,
+          userId,
+          userName,
+          userNumber,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +30,7 @@ function App() {
       };
 
       const response = await fetch(
-        "http://localhost:3001/api/createPost",
+        "http://localhost:3001/api/createUser",
         requestData
       );
       if (!response.ok) {
@@ -42,9 +40,9 @@ function App() {
       console.log(info);
       setInfo((prevInfo) => ({
         ...prevInfo,
-        postName: data.posts,
-        post: data.postDescriptions,
-        postPhoto: data.postPhotoUrls,
+        userId: data.userId,
+        userName: data.userName,
+        userNumber: data.userNumber,
       }));
       console.log(info);
 
@@ -55,7 +53,7 @@ function App() {
     }
   }
 
-  async function deletePost(id) {
+  async function deleteUser(id) {
     try {
       // Отправляем запрос на сервер для создания поста
       const requestData = {
@@ -69,7 +67,7 @@ function App() {
       };
 
       const response = await fetch(
-        "http://localhost:3001/api/deletePost",
+        "http://localhost:3001/api/deleteUser",
         requestData
       );
       if (!response.ok) {
@@ -92,8 +90,8 @@ function App() {
           element={
             <MainForm
               Info={info}
-              createPost={createPost}
-              deletePost={deletePost}
+              createUser={createUser}
+              deleteUser={deleteUser}
             />
           }
         />
